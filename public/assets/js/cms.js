@@ -3,10 +3,10 @@ const postsElement = $("#cms");
 $(document).ready(async function () {
   userData = await $.get("/api/user_data");
   userid = userData.id;
-  console.log(userData);
+
   posts = await $.get("/api/posts");
   filteredPosts = posts.filter((post) => post.UserId == userid);
-  console.log(filteredPosts);
+
   filteredPosts.forEach((post) => {
     postsElement.append(`<div class="card" style="width: 100%;">
     <div class="editCheck form-check">
