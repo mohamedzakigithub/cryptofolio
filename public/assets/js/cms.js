@@ -34,14 +34,6 @@ $(document).ready(async function () {
       readonly
     >${post.post}</textarea>
   </div>
-  <div
-    style="display: none;"
-    id="alert"
-    class="alert alert-danger"
-    role="alert"
-  >
-    <span class="sr-only">Error:</span> <span class="msg"></span>
-  </div>
   <button class="deleteBtn btn btn-danger" type="button" data-id="${post.id}">Delete Post</button>
   <button class="saveBtn btn btn-primary" type="button" data-id="${post.id}">Save Post</button>
 </form>
