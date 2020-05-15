@@ -1,6 +1,5 @@
-var path = require("path");
-
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
   // GET route for getting all of the posts
@@ -11,7 +10,7 @@ module.exports = function (app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function (req, res) {
+  app.post("/api/posts", isAuthenticated, function (req, res) {
     console.log(req.body);
     db.Post.create(req.body).then(function (dbPost) {
       res.json(dbPost);
@@ -30,7 +29,7 @@ module.exports = function (app) {
   });
 
   // PUT route for updating posts
-  app.put("/api/posts", function (req, res) {
+  app.put("/api/posts", isAuthenticated, function (req, res) {
     db.Post.update(req.body, {
       where: {
         id: req.body.id,

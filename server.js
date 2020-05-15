@@ -16,7 +16,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+  session({ secret: "keyboard cat", resave: false, saveUninitialized: false })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -25,7 +25,7 @@ require("./controllers/html-routes.js")(app);
 require("./controllers/user-api-routes.js")(app);
 require("./controllers/post-api-routes.js")(app);
 
-db.sequelize.sync().then(function () {
+db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log(
       "Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -35,4 +35,4 @@ db.sequelize.sync().then(function () {
   });
 });
 
-//({ force: true })
+//
