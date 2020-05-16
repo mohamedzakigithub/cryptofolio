@@ -4,15 +4,19 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    text: {
+    post: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
   });
+
+  Post.associate = function (models) {
+    Post.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+  };
 
   return Post;
 };
