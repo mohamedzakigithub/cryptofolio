@@ -9,37 +9,28 @@ $(document).ready(async function () {
 
   filteredPosts.forEach((post) => {
     postsElement.append(`<div class="card" style="width: 100%;">
-    <div class="editCheck form-check">
-  <input type="checkbox" class="form-check-input" data-id=${post.id}>
-  <label class="form-check-label" for=${post.id}>Edit this post</label>
-</div>
   <div class="card-body">
-  <form class="editpostFrom">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <textarea style="resize: none;"
-      type="textarea"
-      class="form-control edit title-input"
-      data-id=${post.id}
-      readonly
-      rows="1" cols="50"
-    >${post.title}</textarea>
+  <div class="editCheck form-check">
+    <input type="checkbox" class="form-check-input" data-id=${post.id}>
+    <label class="form-check-label" for=${post.id}>Edit this post</label>
   </div>
-  <div class="form-group">
-    <label for="text-input">Post</label>
-    <textarea
-      type="textarea"
-      class="form-control edit post-input"
-      data-id=${post.id}
-      readonly
-    >${post.post}</textarea>
-  </div>
-  <button class="deleteBtn btn btn-danger" type="button" data-id="${post.id}">Delete Post</button>
-  <button class="saveBtn btn btn-primary" type="button" data-id="${post.id}">Save Post</button>
-</form>
+    <form class="editpostFrom">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <textarea style="resize: none;" type="textarea" class="form-control edit title-input" data-id=${post.id}
+          readonly rows="1" cols="50">${post.title}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="text-input">Post</label>
+        <textarea type="textarea" class="form-control edit post-input" data-id=${post.id}
+          readonly>${post.post}</textarea>
+      </div>
+      <button class="deleteBtn btn btn-danger" type="button" data-id="${post.id}">Delete Post</button>
+      <button class="saveBtn btn btn-primary" type="button" data-id="${post.id}">Save Post</button>
+    </form>
   </div>
 </div>
-<hr/>`);
+<hr />`);
   });
 
   AddListeners();

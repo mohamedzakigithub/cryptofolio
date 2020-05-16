@@ -18,7 +18,7 @@ module.exports = function (app) {
   });
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function (req, res) {
+  app.delete("/api/posts/:id", isAuthenticated, function (req, res) {
     db.Post.destroy({
       where: {
         id: req.params.id,
