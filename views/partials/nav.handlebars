@@ -1,0 +1,23 @@
+
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" href="/">Cryptofolio</a>
+      <form class="form-inline">
+        {{#if user}}
+        <h3>Welcome {{user}}</h3>
+        <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/cms">
+          CMS
+        </a>
+        <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/logout">
+          Logout
+        </a>
+        {{/if}}
+        {{#unless user}}
+        <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/signup">
+          Signup
+        </a>
+        <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/login">
+          Login
+        </a>
+        {{/unless}}
+      </form>
+    </nav>

@@ -4,7 +4,7 @@ $(document).ready(async function () {
   userData = await $.get("/api/user_data");
   userid = userData.id;
 
-  posts = await $.get("/api/posts");
+  let posts = await $.get("/api/posts");
   filteredPosts = posts.filter((post) => post.UserId == userid);
 
   filteredPosts.forEach((post) => {
