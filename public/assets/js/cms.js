@@ -17,13 +17,13 @@ $(document).ready(async function () {
   <form class="editpostFrom">
   <div class="form-group">
     <label for="title">Title</label>
-    <input
-      type="input"
+    <textarea style="resize: none;"
+      type="textarea"
       class="form-control edit title-input"
-      value=${post.title}
       data-id=${post.id}
       readonly
-    />
+      rows="1" cols="50"
+    >${post.title}</textarea>
   </div>
   <div class="form-group">
     <label for="text-input">Post</label>
@@ -71,7 +71,7 @@ function AddListeners() {
     post = $(".post-input[data-id=" + id + "]")
       .val()
       .trim();
-    event.preventDefault();
+    console.log(title);
     var postData = {
       id: id,
       title: title,
