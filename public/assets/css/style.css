@@ -2,3 +2,20 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.Bid {
+  background-color: #28a745;
+}
+
+.Ask {
+  background-color: rgb(255, 10, 1);
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.4;
+}

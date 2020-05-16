@@ -1,9 +1,9 @@
 
     {{> nav user=user.name }}
     <div class="container">
-      <div class="row">
+      <div class="row my-4" style="width: 50%;">
         <div class="col">
-          <h2>Sign Up Form</h2>
+          <h2>Enter signup details below</h2>
           <form class="signup">
             <div class="form-group">
               <label for="name">Name</label>
@@ -44,10 +44,8 @@
               ></span>
               <span class="sr-only">Error:</span> <span class="msg"></span>
             </div>
-            <button type="submit" class="btn btn-default">Sign Up</button>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
           </form>
-          <br />
-          <p>Or log in <a href="/login">here</a></p>
         </div>
       </div>
     </div>

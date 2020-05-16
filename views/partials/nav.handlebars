@@ -1,23 +1,23 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-light bg-none justify-content-between" ">
   <a class="navbar-brand" href="/">Cryptofolio</a>
   <form class="form-inline">
     {{#if user}}
     <button type="button" class="btn btn-primary">
       Logged In as: <span class="badge badge-light">{{ user }} </span>
     </button>
-    <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/cms">
-      CMS
+    <a class="btn btn-outline-primary mx-2 my-2 my-sm-0" href="/cms">
+      Manage your posts
     </a>
-    <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/logout">
+    <a class="btn btn-outline-danger mx-2 my-2 my-sm-0" href="/logout">
       Logout
     </a>
     {{/if}}
     {{#unless user}}
-    <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/signup">
-      Signup
-    </a>
-    <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/login">
+    <a class="btn btn-outline-primary mx-2 my-2 my-sm-0" href="/login">
       Login
+    </a>
+    <a class="btn btn-outline-primary mx-2 my-2 my-sm-0" href="/signup">
+      Signup
     </a>
     {{/unless}}
   </form>
