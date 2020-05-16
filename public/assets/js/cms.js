@@ -7,7 +7,7 @@ $(document).ready(async function () {
   filteredPosts = posts.filter((post) => post.UserId == userid);
 
   filteredPosts.forEach((post) => {
-    postsElement.append(`<div class="card" style="width: 100%;">
+    postsElement.append(`<div class="card mx-auto" style="width: 50%;">
   <div class="card-body">
   <div class="editCheck form-check">
     <input type="checkbox" class="form-check-input" data-id=${post.id}>

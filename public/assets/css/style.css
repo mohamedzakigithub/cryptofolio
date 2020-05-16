@@ -11,11 +11,16 @@ form.login {
   background-color: rgb(255, 10, 1);
 }
 
+#posts::-webkit-scrollbar {
+  display: none;
+}
+
 #myVideo {
   position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  opacity: 0.4;
+  opacity: 1;
+  z-index: -10;
 }
