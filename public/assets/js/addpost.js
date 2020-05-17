@@ -1,11 +1,10 @@
+const addpostForm = $("form.addpostFrom");
+const titleInput = $("#title-input");
+const postInput = $("#post-input");
+const coinInput = $("#coin-input");
+const priceInput = $("#price-input");
+const typeInput = $("#type-input");
 $(document).ready(function () {
-  const addpostForm = $("form.addpostFrom");
-  const titleInput = $("#title-input");
-  const postInput = $("#post-input");
-  const coinInput = $("#coin-input");
-  const priceInput = $("#price-input");
-  const typeInput = $("#type-input");
-
   addpostForm.on("submit", async function (event) {
     event.preventDefault();
     const result = await $.get("/api/user_data");
