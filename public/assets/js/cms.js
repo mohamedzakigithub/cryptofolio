@@ -5,7 +5,6 @@ $(document).ready(async function () {
   userid = userData.id;
   let posts = await $.get("/api/posts");
   filteredPosts = posts.filter((post) => post.UserId == userid);
-
   filteredPosts.forEach((post) => {
     postsElement.append(`<div class="card mx-auto" style="width: 50%;">
   <div class="card-body">
@@ -64,19 +63,18 @@ $(document).ready(async function () {
 });
 
 function AddListeners() {
-  $(".deleteBtn").on("click", function (event) {
-    event.preventDefault();
-    var id = event.target.getAttribute("data-id");
-    $.ajax({
-      url: "/api/posts/" + id,
-      type: "delete",
-    })
-      .then(function (data) {
-        location.reload();
-      })
-      .catch(function (err) {
-        console.log(err);
+  $(".deleteBtn").on("click", async function (event) {
+    try {
+      event.preventDefault();
+      var id = event.target.getAttribute("data-id");
+      const result = await $.ajax({
+        url: "/api/posts/" + id,
+        type: "delete",
       });
+      location.reload();
+    } catch (err) {
+      handleEditErr(err);
+    }
   });
 
   $(".saveBtn").on("click", function (event) {
@@ -128,17 +126,18 @@ function AddListeners() {
   });
 }
 
-function editPost(postData) {
-  console.log(postData);
-  $.ajax({
-    url: "/api/posts",
-    type: "put",
-    data: postData,
-  })
-    .then(function (data) {
-      window.location.replace("/cms");
-    })
-    .catch(handleEditErr);
+async function editPost(postData) {
+  try {
+    const result = await $.ajax({
+      url: "/api/posts",
+      type: "put",
+      data: postData,
+    });
+
+    window.location.replace("/cms");
+  } catch (err) {
+    handleEditErr(err);
+  }
 }
 
 function handleEditErr(err) {
