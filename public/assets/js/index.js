@@ -1,6 +1,9 @@
 const posts = $("#posts");
+const indexLoader = $(".loader");
+
 $(document).ready(async function () {
   const result = await $.get("/api/posts");
+  indexLoader.hide();
   result.forEach((element) => {
     posts.append(`<div class="card" style="width: 100%;">
   <div class="card-header my-0 py-0">

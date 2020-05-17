@@ -1,7 +1,9 @@
 const postsElement = $("#cms");
+const cmsLoader = $(".loader");
 
 $(document).ready(async function () {
   userData = await $.get("/api/user_data");
+  cmsLoader.hide();
   userid = userData.id;
   let posts = await $.get("/api/posts");
   filteredPosts = posts.filter((post) => post.UserId == userid);
