@@ -1,5 +1,4 @@
 var isAuthenticated = require("../config/middleware/isAuthenticated");
-var exphbs = require("express-handlebars");
 
 module.exports = function (app) {
   app.get("/", function (req, res) {
@@ -17,21 +16,21 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/");
     }
-    var hbsObject = {
+    const hbsObject = {
       user: req.user,
     };
     res.render("login", hbsObject);
   });
 
   app.get("/addpost", isAuthenticated, function (req, res) {
-    var hbsObject = {
+    const hbsObject = {
       user: req.user,
     };
     res.render("addpost", hbsObject);
   });
 
   app.get("/cms", isAuthenticated, function (req, res) {
-    var hbsObject = {
+    const hbsObject = {
       user: req.user,
     };
     res.render("cms", hbsObject);
