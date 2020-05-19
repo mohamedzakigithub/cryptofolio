@@ -137,12 +137,13 @@ async function editPost(postData) {
     });
 
     window.location.replace("/cms");
-  } catch (err) {
-    handleEditErr(err);
+  } catch (error) {
+    errorHandler(error);
   }
 }
 
-function handleEditErr(err) {
-  $("#alert .msg").text("Adding post failed");
+function errorHandler(error) {
+  console.log(error)
+  $("#alert .msg").text(error.responseText);
   $("#alert").fadeIn(500);
 }

@@ -27,7 +27,12 @@ $(document).ready(function () {
       });
       window.location.replace("/");
     } catch (error) {
-      console.log(error);
+      errorHandler(error);
     }
+  }
+
+  function errorHandler(error){
+    $("#alert .msg").text("Login failed");
+    $("#alert").fadeIn(500);
   }
 });

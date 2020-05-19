@@ -13,7 +13,7 @@ module.exports = function (app) {
       })
       .catch(function (err) {
         console.log(err);
-        res.status(401).json(err);
+        res.status(401).send("Signup failed!");
       });
   });
 

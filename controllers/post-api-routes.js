@@ -15,6 +15,9 @@ module.exports = function (app) {
     console.log(req.body);
     db.Post.create(req.body).then(function (dbPost) {
       res.json(dbPost);
+    }).catch(function (err) {
+      console.log(err);
+      res.status(401).send("Add post failed!");
     });
   });
 
@@ -35,6 +38,10 @@ module.exports = function (app) {
       },
     }).then(function (dbPost) {
       res.json(dbPost);
+    })
+    .catch(function (err) {
+      console.log(err);
+      res.status(401).send("Edit post failed!");
     });
   });
 };

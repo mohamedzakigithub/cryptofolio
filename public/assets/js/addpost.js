@@ -21,8 +21,7 @@ $(document).ready(function () {
     if (
       !postData.UserId ||
       !postData.title ||
-      !postData.post ||
-      !postData.price
+      !postData.post
     ) {
       $("#alert .msg").text("All fields required");
       $("#alert").fadeIn(500);
@@ -36,12 +35,12 @@ $(document).ready(function () {
       const result = await $.post("/api/posts", postData);
       window.location.replace("/cms");
     } catch (error) {
-      handlePostErr();
+      errorHandler(error);
     }
   }
 
-  function handlePostErr() {
-    $("#alert .msg").text("Adding post failed");
+  function errorHandler(error){
+    $("#alert .msg").text(error.responseText);
     $("#alert").fadeIn(500);
   }
 });

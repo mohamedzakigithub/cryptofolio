@@ -13,6 +13,8 @@ $(document).ready(function () {
     };
 
     if (!userData.name || !userData.email || !userData.password) {
+      $("#alert .msg").text("All fields required");
+      $("#alert").fadeIn(500);
       return;
     }
     signUpUser(userData.name, userData.email, userData.password);
@@ -29,12 +31,12 @@ $(document).ready(function () {
       });
       window.location.replace("/");
     } catch (error) {
-      handleLoginErr(err);
+      errorHandler(error);
     }
   }
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text("Sign Up failed");
+  function errorHandler(error){
+    $("#alert .msg").text(error.responseText);
     $("#alert").fadeIn(500);
   }
 });
