@@ -36,5 +36,4 @@ passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
 
-// Exporting our configured passport
 module.exports = passport;

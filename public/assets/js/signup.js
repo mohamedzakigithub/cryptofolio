@@ -35,7 +35,7 @@ $(document).ready(function () {
     }
   }
 
-  function errorHandler(error){
+  function errorHandler(error) {
     $("#alert .msg").text(error.responseText);
     $("#alert").fadeIn(500);
   }

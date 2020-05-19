@@ -109,6 +109,7 @@ function AddListeners() {
     if (!postData.title || !postData.post || !postData.price) {
       $("#alert .msg").text("All fields required");
       $("#alert").fadeIn(500);
+      $("html, body").animate({ scrollTop: 0 }, "slow");
       return;
     }
     editPost(postData);
@@ -143,7 +144,8 @@ async function editPost(postData) {
 }
 
 function errorHandler(error) {
-  console.log(error)
+  console.log(error);
   $("#alert .msg").text(error.responseText);
   $("#alert").fadeIn(500);
+  $("html, body").animate({ scrollTop: 0 }, "slow");
 }
