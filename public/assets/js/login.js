@@ -1,12 +1,11 @@
 $(document).ready(function () {
-  // Getting references to our form and inputs
-  var loginForm = $("form.login");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  const loginForm = $("form.login");
+  const emailInput = $("input#email-input");
+  const passwordInput = $("input#password-input");
 
   loginForm.on("submit", function (event) {
     event.preventDefault();
-    var userData = {
+    const userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
     };
@@ -20,16 +19,20 @@ $(document).ready(function () {
     passwordInput.val("");
   });
 
-  function loginUser(email, password) {
-    $.post("/api/login", {
-      email: email,
-      password: password,
-    })
-      .then(function () {
-        window.location.replace("/");
-      })
-      .catch(function (err) {
-        console.log(err);
+  async function loginUser(email, password) {
+    try {
+      const data = await $.post("/api/login", {
+        email: email,
+        password: password,
       });
+      window.location.replace("/");
+    } catch (error) {
+      errorHandler(error);
+    }
+  }
+
+  function errorHandler(error){
+    $("#alert .msg").text("Login failed");
+    $("#alert").fadeIn(500);
   }
 });
