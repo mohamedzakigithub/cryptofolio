@@ -1,6 +1,12 @@
-<nav class="navbar navbar-light bg-none justify-content-between" >
-  <a class="navbar-brand text-white" href="/"><img src="assets/img/logo.png" alt="logo" style="height: 80px;"></a>
-  <form class="form-inline">
+<nav class="navbar navbar-expand-md navbar-dark bg-none">
+  <a class="navbar-brand " href="/"><img src="assets/img/logo.png" alt="logo" style="height: 60px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <form class="form-inline">
     {{#if user}}
     <button type="button" class="btn btn-primary mx-2 my-2">
       Logged In as: <span class="badge badge-light">{{ user }} </span>
@@ -21,4 +27,9 @@
     </a>
     {{/unless}}
   </form>
+      
+     
+    </ul>
+    
+  </div>
 </nav>

@@ -8,7 +8,7 @@ $(document).ready(async function () {
   let posts = await $.get("/api/posts");
   filteredPosts = posts.filter((post) => post.UserId == userid);
   filteredPosts.forEach((post) => {
-    postsElement.append(`<div class="card mx-auto" style="width: 50%;">
+    postsElement.append(`<div class="card mx-auto" style="min-width: 300px; max-width: 500px;">
   <div class="card-body">
   <div class="editCheck form-check">
     <input type="checkbox" class="form-check-input" data-id=${post.id}>
@@ -22,7 +22,7 @@ $(document).ready(async function () {
       </div>
       <div class="form-group">
         <label for="text-input">Post</label>
-        <textarea type="textarea" class="form-control edit post-input" data-id=${post.id}
+        <textarea type="textarea" rows="4" class="form-control edit post-input" data-id=${post.id}
         disabled="true">${post.post}</textarea>
       </div>
       <div class="form-group">
