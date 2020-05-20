@@ -5,7 +5,6 @@ module.exports = function (app) {
   app.get("/api/posts", async function (req, res) {
     try {
       const result = await db.Post.findAll({
-        order: [["updatedAt", "DESC"]],
         include: [db.User],
       });
       res.json(result);
