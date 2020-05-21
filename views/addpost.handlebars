@@ -1,43 +1,50 @@
-
-    {{> nav user=user.name}}
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2>Add Post</h2>
-          <form class="addpostFrom">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input
-                type="input"
-                class="form-control"
-                id="title-input"
-                placeholder="Title"
-              />
-            </div>
-            <div class="form-group">
-              <label for="text-input">Post</label>
-              <textarea
-                type="textarea"
-                class="form-control"
-                id="post-input"
-                placeholder="Post"
-              ></textarea>
-            </div>
-            <div
-              style="display: none;"
-              id="alert"
-              class="alert alert-danger"
-              role="alert"
-            >
-              <span
-                class="glyphicon glyphicon-exclamation-sign"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-            <button type="submit" class="btn btn-default">Add post</button>
-          </form>
+{{> nav user=user.name}}
+<div class="container">
+  <div class="row mr-4 text-white">
+    <div class="col text-white mx-auto" style="width: 50%;">
+      <div class="mx-auto" style="min-width: 300px; max-width: 500px">
+      <h3>Add a post</h3>
+      <form class="addpostFrom" style="">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="input" class="form-control" id="title-input" placeholder="Title" />
         </div>
+        <div class="form-group">
+          <label for="text-input">Post</label>
+          <textarea type="textarea" rows="4" class="form-control" id="post-input" placeholder="Post"></textarea>
+        </div>
+        <div class="form-group">
+        <label for="coin-input">Coin</label>
+        <select class="custom-select" id="coin-input">
+          <option selected value="Bitcoin">Bitcoin</option>
+          <option value="Ethereum">Ethereum</option>
+          <option value="XRP">XRP</option>
+          <option value="Tether">Tether</option>
+          <option value="Bitcoin Cash">Bitcoin Cash</option>
+          <option value="Bitcoin SV">Bitcoin SV</option>
+          <option value="Litecoin">Litecoin</option>
+          <option value="Binance Coin">Binance Coin</option>
+        </select>
+        </div>
+        <div class="form-group">
+          <label for="price-input">Price</label>
+          <input type="number" class="form-control" id="price-input" placeholder="0.00" />
+        </div>
+        <div class="form-group">
+        <label for="type-input">Post type</label>
+        <select class="custom-select" id="type-input">
+          <option selected value="Ask">Ask</option>
+          <option value="Bid">Bid</option>
+        </select>
+        </div>   
+        <div style="display: none;" id="alert" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+        <button type="submit" class="btn btn-default">Add post</button>
+      </form>
       </div>
     </div>
-
+  </div>
+</div>
+<script type="text/javascript" src="assets/js/addpost.js"></script>

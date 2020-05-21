@@ -2,40 +2,53 @@ var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
-  // GET route for getting all of the posts
-  app.get("/api/posts", function (req, res) {
-    db.Post.findAll({}).then(function (dbPost) {
-      res.json(dbPost);
-    });
+  app.get("/api/posts", async function (req, res) {
+    try {
+      const result = await db.Post.findAll({
+        include: [db.User],
+      });
+      res.json(result);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Get posts failed!");
+    }
   });
 
-  // POST route for saving a new post
-  app.post("/api/posts", isAuthenticated, function (req, res) {
-    console.log(req.body);
-    db.Post.create(req.body).then(function (dbPost) {
-      res.json(dbPost);
-    });
+  app.post("/api/posts", isAuthenticated, async function (req, res) {
+    try {
+      const result = await db.Post.create(req.body);
+      res.json(result);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Add post failed!");
+    }
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function (req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id,
-      },
-    }).then(function (dbPost) {
-      res.json(dbPost);
-    });
+  app.delete("/api/posts/:id", isAuthenticated, async function (req, res) {
+    try {
+      const result = await db.Post.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.json(result);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Delete post failed!");
+    }
   });
 
-  // PUT route for updating posts
-  app.put("/api/posts", isAuthenticated, function (req, res) {
-    db.Post.update(req.body, {
-      where: {
-        id: req.body.id,
-      },
-    }).then(function (dbPost) {
-      res.json(dbPost);
-    });
+  app.put("/api/posts", isAuthenticated, async function (req, res) {
+    try {
+      const result = await db.Post.update(req.body, {
+        where: {
+          id: req.body.id,
+        },
+      });
+      res.json(result);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Edit post failed!");
+    }
   });
 };

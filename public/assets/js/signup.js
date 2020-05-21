@@ -1,38 +1,42 @@
 $(document).ready(function () {
-  var signUpForm = $("form.signup");
-  var nameInput = $("input#name-input");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  const signUpForm = $("form.signup");
+  const nameInput = $("input#name-input");
+  const emailInput = $("input#email-input");
+  const passwordInput = $("input#password-input");
 
   signUpForm.on("submit", function (event) {
     event.preventDefault();
-    var userData = {
+    const userData = {
       name: nameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
     };
 
     if (!userData.name || !userData.email || !userData.password) {
+      $("#alert .msg").text("All fields required");
+      $("#alert").fadeIn(500);
       return;
     }
     signUpUser(userData.name, userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
   });
-  function signUpUser(name, email, password) {
-    $.post("/api/signup", {
-      name: name,
-      email: email,
-      password: password,
-    })
-      .then(function (data) {
-        window.location.replace("/");
-      })
-      .catch(handleLoginErr);
+
+  async function signUpUser(name, email, password) {
+    try {
+      const res = await $.post("/api/signup", {
+        name: name,
+        email: email,
+        password: password,
+      });
+      window.location.replace("/");
+    } catch (error) {
+      errorHandler(error);
+    }
   }
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text("Sign Up failed");
+  function errorHandler(error) {
+    $("#alert .msg").text(error.responseText);
     $("#alert").fadeIn(500);
   }
 });
