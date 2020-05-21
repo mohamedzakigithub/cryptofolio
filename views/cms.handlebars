@@ -1,0 +1,26 @@
+{{> nav user=user.name}}
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-white" style="text-align: center;">Edit your posts or <a class="btn btn-success mx-2 my-4" href="/addpost">
+        Add a new post
+      </a></h3>
+      <div class="mx-auto my-5 text-white loader" >
+        <p style="text-align: center;">Loading posts ....</p>
+        <img style="display:block; margin:auto;" src="https://i.gifer.com/XDZT.gif" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div id="cms">
+        <div style="display: none;" id="alert" class="alert alert-danger mx-3 my-3" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript" src="assets/js/cms.js"></script>
