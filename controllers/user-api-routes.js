@@ -6,15 +6,16 @@ module.exports = function (app) {
     res.json(req.user);
   });
 
-  app.post("/api/signup", function (req, res) {
-    db.User.create(({ name, email, password } = req.body))
-      .then(function () {
-        res.redirect(307, "/api/login");
-      })
-      .catch(function (err) {
-        console.log(err);
-        res.status(401).send("Signup failed!");
-      });
+  app.post("/api/signup", async function (req, res) {
+    try {
+      const result = await db.User.create(
+        ({ name, email, password } = req.body)
+      );
+      res.redirect(307, "/api/login");
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Signup failed!");
+    }
   });
 
   app.get("/logout", function (req, res) {
