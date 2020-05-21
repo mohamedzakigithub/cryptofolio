@@ -4,7 +4,6 @@ const postInput = $("#post-input");
 const coinInput = $("#coin-input");
 const priceInput = $("#price-input");
 const typeInput = $("#type-input");
-
 $(document).ready(function () {
   addpostForm.on("submit", async function (event) {
     event.preventDefault();
@@ -22,8 +21,7 @@ $(document).ready(function () {
     if (
       !postData.UserId ||
       !postData.title ||
-      !postData.post ||
-      !postData.price
+      !postData.post
     ) {
       $("#alert .msg").text("All fields required");
       $("#alert").fadeIn(500);
@@ -41,7 +39,7 @@ $(document).ready(function () {
     }
   }
 
-  function errorHandler(error) {
+  function errorHandler(error){
     $("#alert .msg").text(error.responseText);
     $("#alert").fadeIn(500);
   }

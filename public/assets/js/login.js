@@ -31,7 +31,7 @@ $(document).ready(function () {
     }
   }
 
-  function errorHandler(error) {
+  function errorHandler(error){
     $("#alert .msg").text("Login failed");
     $("#alert").fadeIn(500);
   }
