@@ -10,6 +10,7 @@
 <br>
 
 - [Demo](#Demo)
+- [Deployed app URL](#Deployed-app-URL)
 - [Technologies](#Technologies)
 - [How to Use](#How-to-Use)
 - [Installation Guide](#Installation-Guide)
@@ -17,6 +18,10 @@
 ## Demo
 
 <img src="public/assets/img/demo.gif" style="width:70%"/>
+
+## Deployed app URL
+
+https://cryptofolio-project.herokuapp.com/
 
 ## Technologies
 
