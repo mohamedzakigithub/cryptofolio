@@ -32,3 +32,10 @@ form.login {
 .card-bg {
   background-color: rgb(211, 211, 211);
 }
+
+.margin-top,
+.margin-top a,
+.margin-top a:visited {
+  margin-top: 1rem;
+  color: white;
+}
