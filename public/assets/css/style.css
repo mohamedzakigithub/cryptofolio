@@ -24,3 +24,11 @@ form.login {
   opacity: 1;
   z-index: -10;
 }
+
+.light-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-bg {
+  background-color: rgb(211, 211, 211);
+}

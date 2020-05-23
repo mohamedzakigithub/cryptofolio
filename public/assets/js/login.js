@@ -11,6 +11,8 @@ $(document).ready(function () {
     };
 
     if (!userData.email || !userData.password) {
+      $("#alert .msg").text("All fields required");
+      $("#alert").fadeIn(500);
       return;
     }
 
