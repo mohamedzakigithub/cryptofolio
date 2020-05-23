@@ -3,9 +3,9 @@ const cmsLoader = $(".loader");
 
 $(document).ready(async function () {
   userData = await $.get("/api/user_data");
-  cmsLoader.hide();
   userid = userData.id;
   let posts = await $.get("/api/posts");
+  cmsLoader.hide();
   filteredPosts = posts.filter((post) => post.UserId == userid);
   filteredPosts.forEach((post) => {
     postsElement.append(`<div class="card mx-auto" style="min-width: 300px; max-width: 500px;">
